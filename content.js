@@ -1,18 +1,36 @@
-
-const place = document.querySelector('div[class^= styles_buttons]');
-
 let div = document.createElement('button');
 div.className = 'my_button';
-div.innerText = 'Watch';
-// const url ="https://kinopoiskkk"+ window.location.href.slice(21);
-const url = "https://1ww.frkp.live/" + window.location.href.slice(25);
+div.innerText = 'Watch';   
 
 
-place.append(div);
+function add_button()
+{
+    let place = document.querySelector('div[class^= styles_buttons]');
+    place.append(div);
+}
+
+let prevUrl = undefined;
+setInterval(() => {
+  const currUrl = window.location.href;
+  if (currUrl != prevUrl && currUrl.indexOf('film','series')!=-1) {
+    console.log(prevUrl)
+    console.log(currUrl)
+    prevUrl = currUrl
+    add_button()
+
+  }
+}, 60);
+
+window.addEventListener('popstate',()=>
+{
+        history.go()
+        add_button()
+})
 
 
 div.addEventListener('click', ()=>
 {
-     window.location.href = url
+    console.log('click')
+     window.location.href = "https://1ww.frkp.live/" + window.location.href.slice(25);
 }
 )

@@ -16,7 +16,8 @@
         "matches" : ["https://www.kinopoisk.ru/*"],
         "run_at" : "document_idle",
         "all_frames" : false,
-        "js" : ["./content.js"]
+        "js" : ["./content.js"],
+        "css" : ["content.css"]
     }
     ],
     "permissions": ["tabs"],
