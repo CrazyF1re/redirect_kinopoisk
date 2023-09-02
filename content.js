@@ -12,25 +12,21 @@ function add_button()
 let prevUrl = undefined;
 setInterval(() => {
   const currUrl = window.location.href;
-  if (currUrl != prevUrl && currUrl.indexOf('film','series')!=-1) {
-    console.log(prevUrl)
-    console.log(currUrl)
-    prevUrl = currUrl
-    add_button()
-
+  if (currUrl != prevUrl && (currUrl.indexOf('film',)!=-1 || currUrl.indexOf('series')!=-1)) {
+    prevUrl = currUrl;
+    add_button();
   }
-}, 60);
+}, 1);
 
 window.addEventListener('popstate',()=>
 {
-        history.go()
-        add_button()
+        history.go();
+        add_button();
 })
 
 
 div.addEventListener('click', ()=>
 {
-    console.log('click')
-     window.location.href = "https://1ww.frkp.live/" + window.location.href.slice(25);
+    window.location.replace('http://www.kinopoiskkk.ru/' + window.location.href.slice(25));
 }
 )
