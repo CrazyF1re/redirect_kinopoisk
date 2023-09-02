@@ -1,5 +1,5 @@
 {
-    "manifest_version" : 3,
+    "manifest_version" : 2,
     "name" : "redirect_kinopoisk",
     "version" : "1.0.1",
     "description" : "The button redirects from kinopoisk to free videoplayer",
@@ -7,10 +7,11 @@
         "128":"./icons/kp.png"
         
     },
-    "action":
-    {
-        "default_title" : "Watch"
-    },
+    "applications": {
+        "gecko": {
+          "id": "redirect_kinopoisk@example.com"
+        }
+      },
     "content_scripts" :[ 
     {
         "matches" : ["https://www.kinopoisk.ru/*"],
@@ -20,6 +21,5 @@
         "css" : ["content.css"]
     }
     ],
-    "permissions": ["tabs"],
-    "host_permissions":["https://www.kinopoisk.ru/*"]   
+    "permissions": ["tabs"]  
 }
