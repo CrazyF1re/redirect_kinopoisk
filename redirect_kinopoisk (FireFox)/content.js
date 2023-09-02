@@ -27,6 +27,6 @@ window.addEventListener('popstate',()=>
 
 div.addEventListener('click', ()=>
 {
-    window.location.replace('http://www.kinopoiskkk.ru/' + window.location.href.slice(25));
+    window.open('http://www.kinopoiskkk.ru/' + window.location.href.slice(25),'_self');
 }
 )
