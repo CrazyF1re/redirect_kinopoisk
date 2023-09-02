@@ -1,0 +1,14 @@
+.my_button {
+    position: relative;
+    background-color :#EB4E00;
+    color: white;
+    border-width: 0;
+    border-radius: 5.2rem;
+    min-width: 150px;
+    height: 5.2rem;
+
+}
+.my_button:hover {
+    width: 50;
+    background-color :#ff5500;
+}
