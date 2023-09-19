@@ -6,7 +6,7 @@
     border-radius: 5.2rem;
     min-width: 150px;
     height: 5.2rem;
-
+    cursor: pointer;
 }
 .my_button:hover {
     width: 50;
@@ -40,6 +40,5 @@
     margin:0 auto;
 }
 .btn:hover{
-    cursor: pointer;
     background-color :#ff2600;
 }
