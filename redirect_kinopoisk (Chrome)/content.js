@@ -26,20 +26,23 @@ function make_lot_btns()
 
 setInterval(() => {
   const currUrl = window.location.href;
-  if (currUrl != prevUrl && (currUrl.indexOf('kinopoisk.ru/film',)!=-1 || currUrl.indexOf('kinopoisk.ru/series')!=-1)) {
+  if (currUrl != prevUrl && (currUrl.indexOf('kinopoisk.ru\/film',)!=-1 || currUrl.indexOf('kinopoisk.ru\/series')!=-1)) {
     prevUrl = currUrl;
     add_button();
   }
-  if (currUrl != prevUrl && currUrl.indexOf('folder')!=-1)
+  if (currUrl != prevUrl && currUrl.indexOf('folders')!=-1)
   {
-    make_lot_btns();
     prevUrl = currUrl; 
+    make_lot_btns();
   }
-}, 1);
+}, 2);
 
 window.addEventListener('popstate',()=>
 {
-        history.go();
-        add_button();
-        currUrl = window.location.href;
+  currUrl = window.location.href;
+  if ((currUrl.indexOf('kinopoisk.ru\/film',)!=-1 || currUrl.indexOf('kinopoisk.ru\/series')!=-1)) {
+    history.go();
+    add_button();
+  }
+        
 });
