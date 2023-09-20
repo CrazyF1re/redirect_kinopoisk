@@ -5,14 +5,14 @@ let prevUrl = undefined;
 function add_button()
 {
     let place = document.querySelector('div[class^= styles_buttons]');
-    url = 'http://www.kinopoiskkk.ru/' + window.location.href.slice(25);
+    let url = 'http://www.kinopoiskkk.ru/' + window.location.href.slice(25);
     div.innerHTML = `<a href ="${url}" style = "text-decoration:none; color:white;font-weight:300;">Watch</a>`;
     place.append(div);
 }
 
 function make_lot_btns()
 {
-  films = document.querySelectorAll('div[class= info]');
+  let films = document.querySelectorAll('div[class= info]');
   for (const item of films)
   {    
     let url = 'http://www.kinopoiskkk.ru/' + item.querySelector(".name").href.slice(25);
@@ -30,12 +30,30 @@ setInterval(() => {
     prevUrl = currUrl;
     add_button();
   }
-  if (currUrl != prevUrl && currUrl.indexOf('folders')!=-1)
+  else if (currUrl != prevUrl && currUrl.indexOf('folders')!=-1)
   {
     prevUrl = currUrl; 
     make_lot_btns();
   }
-}, 2);
+  else if(currUrl!=prevUrl && currUrl.indexOf('lists/movies')!=-1){
+    prevUrl = currUrl; 
+    let films = document.querySelectorAll('div[class *= styles_root__ti07r]');
+    films.forEach(element => {
+      let url = 'http://www.kinopoiskkk.ru/' + element.querySelector("a[class*=styles_root__wgbNq]").href.slice(25);
+      let btn = document.createElement('div');
+      btn.className = 'btn';
+      btn.innerHTML = `<a style="color:#ffffff;padding-top : 25px; text-decoration:none; margin:0 auto; padding:5px; font-size:15px;" class = "a-btn" href ="${url}">Watch</a>`;
+      element.querySelector('div[class*="styles_main__Y8zDm"]').append(btn);
+    });
+  }
+  // else if(currUrl!=prevUrl && currUrl.indexOf('movies')!=-1)
+  // {
+
+  // }
+  prevUrl = currUrl;
+}, 1000);
+
+
 
 window.addEventListener('popstate',()=>
 {
@@ -44,5 +62,20 @@ window.addEventListener('popstate',()=>
     history.go();
     add_button();
   }
+  // else if(currUrl.indexOf('lists\/movies')!=-1){
+  //   console.log(123);
+  //   history.go();
+  //   let films = document.querySelectorAll('div[class *= styles_root__ti07r]');
+  //   films.forEach(element => {
+  //     let url = 'http://www.kinopoiskkk.ru/' + element.querySelector("a[class*=styles_root__wgbNq]").href.slice(25);
+  //     let btn = document.createElement('div');
+  //     btn.className = 'btn';
+  //     btn.innerHTML = `<a style="color:#ffffff;padding-top : 25px; text-decoration:none; margin:0 auto; padding:5px; font-size:15px;" class = "a-btn" href ="${url}">Watch</a>`;
+  //     element.querySelector('span[class="styles_mainTitle__IFQyZ styles_activeMovieTittle__kJdJj"]').append(btn);
+  //   });
+  
         
 });
+
+
+
