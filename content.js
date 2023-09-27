@@ -1,12 +1,13 @@
-let div = document.createElement('button');
+let div = document.createElement('a');
 div.className = 'my_button';
+div.textContent = 'Watch'
 let prevUrl = undefined;
 
 function add_button()
 {
     let place = document.querySelector('div[class^= styles_buttons]');
     let url = 'http://www.kinopoiskkk.ru/' + window.location.href.slice(25);
-    div.innerHTML = `<a href ="${url}" style = "text-decoration:none; color:white;font-weight:300;">Watch</a>`;
+    div.href = url;
     place.append(div);
 }
 
@@ -17,9 +18,10 @@ function make_lot_btns()
   {    
     let url = 'http://www.kinopoiskkk.ru/' + item.querySelector(".name").href.slice(25);
     let place = item;
-    let btn = document.createElement('div');
+    let btn = document.createElement('a');
     btn.className = 'btn';
-    btn.innerHTML = `<a style="color:#ffffff;padding-top : 25px; text-decoration:none; margin:0 auto; padding:5px; font-size:15px;" class = "a-btn" href ="${url}">Watch</a>`;
+    btn.href = url;
+    btn.textContent = 'Watch';
     place.append(btn);
   }
 }
@@ -40,9 +42,9 @@ setInterval(() => {
     let films = document.querySelectorAll('div[class *= styles_root__ti07r]');
     films.forEach(element => {
       let url = 'http://www.kinopoiskkk.ru/' + element.querySelector("a[class*=styles_root__wgbNq]").href.slice(25);
-      let btn = document.createElement('div');
+      let btn = document.createElement('a');
       btn.className = 'btn';
-      btn.innerHTML = `<a style="color:#ffffff;padding-top : 25px; text-decoration:none; margin:0 auto; padding:5px; font-size:15px;" class = "a-btn" href ="${url}">Watch</a>`;
+      btn.href = url;
       element.querySelector('div[class*="styles_main__Y8zDm"]').append(btn);
     });
   }
