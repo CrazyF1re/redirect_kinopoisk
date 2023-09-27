@@ -42,5 +42,4 @@
 .btn:hover{
     cursor: pointer;
     --x: 100%;
-    border:1px solid black;
 }
