@@ -45,6 +45,7 @@ setInterval(() => {
       let btn = document.createElement('a');
       btn.className = 'btn';
       btn.href = url;
+      btn.textContent = 'Watch';
       element.querySelector('div[class*="styles_main__Y8zDm"]').append(btn);
     });
   }
